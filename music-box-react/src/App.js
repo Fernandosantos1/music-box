@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import api from "./service/api";
+import Votacoes from "./components/Votacoes";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  const listar = () => {
+    api
+      .get()
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.error(error.data);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Votacoes titilu="bk"/>
+    <Votacoes titilu="mc"/>
+    {/*
+      <h1>Ahhhh</h1>
+      <button onClick={listar}>Ahhh</button>
+      <ul>
+        {data.map((value) => (
+          <li key={value.id}>{value.musica}{value.ano}</li>
+          
+        ))}
+      </ul>
+*/}
+
+    </>
   );
 }
 
