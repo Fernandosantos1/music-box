@@ -19,8 +19,7 @@ function App() {
 
   return (
     <>
-    <Votacoes titilu="bk"/>
-    <Votacoes titilu="mc"/>
+
     {/*
       <h1>Ahhhh</h1>
       <button onClick={listar}>Ahhh</button>
