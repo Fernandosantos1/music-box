@@ -22,7 +22,7 @@ export default (props) => {
         </p>
         <p>
           <strong className="card-title">ano: </strong>
-          <input className="input-music-enable" type="text" value={props.ano.} />
+          <input className="input-music-enable" type="text" value={props.ano} />
         </p>
         <button className="btn-salvar-disabled">Salvar</button>
       </div>
