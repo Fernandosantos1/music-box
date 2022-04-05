@@ -1,26 +1,13 @@
 import React, { useState } from "react";
 import api from "./service/api";
-import Votacoes from "./components/Votacoes";
+import Musicas from "./pages/Musicas";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  const listar = () => {
-    api
-      .get()
-      .then((res) => {
-        console.log(res.data);
-        setData(res.data);
-      })
-      .catch((error) => {
-        console.error(error.data);
-      });
-  };
 
   return (
     <>
-
-    {/*
+      <Musicas />
+      {/*
       <h1>Ahhhh</h1>
       <button onClick={listar}>Ahhh</button>
       <ul>
@@ -30,7 +17,6 @@ function App() {
         ))}
       </ul>
 */}
-
     </>
   );
 }
