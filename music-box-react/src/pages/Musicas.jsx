@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemMusica from "../components/ItemMusica";
 import ItemNav from "../components/ItemNav";
+import api from "../service/api";
 import "./reset.css";
 import "./Musicas.css";
 
 export default (props) => {
+  const [musicas, setMusicas] = React.useState([]);
+
+  useEffect(() => {
+    api
+      .get()
+      .then((res) => setMusicas(res.data))
+      .catch((err) => console.log(err.data));
+  }, []);
   return (
     <>
       <ItemNav />
@@ -16,13 +25,16 @@ export default (props) => {
 
       <div className="container">
         <div className="music-boxes">
-          <ItemMusica 
-          musica="M4"
-          artista="Matue"
-          genero="trap"
-          ano={0}
-          id="1"
-          />
+          {musicas.map((value) => (
+            <ItemMusica
+              musica={value.name}
+              artista={value.fantasyName}
+              genero={value.ceo}
+              ano={value.email}
+              key={value.uuid}
+              id={value.uuid}
+            />
+          ))}
         </div>
       </div>
     </>

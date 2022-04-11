@@ -4,7 +4,7 @@ import Avatar from "../imagens/avatar.png"
 export default (props) => {
   return (
     <nav>
-      <div class="container">
+      <div className="container">
         <img src={LogoVerde} alt="Logo" className="logo" />
         <img src={Avatar} alt="Avatar" className="avatar" />
       </div>
